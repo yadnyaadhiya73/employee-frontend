@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import {EmployeeListComponent} from './employee-list/employee-list.component'
+import {CreateEmployeeComponent} from './create-employee/create-employee.component'
+import { FormsModule } from '@angular/forms';
+
+
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet,EmployeeListComponent,RouterModule,CreateEmployeeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
