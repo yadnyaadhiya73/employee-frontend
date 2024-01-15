@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
 import { error } from 'console';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-employee',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './create-employee.component.html',
   styleUrl: './create-employee.component.css'
 })

@@ -3,18 +3,39 @@
 <form (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="first_name" class="form-label">First Name</label>
-      <input type="first_name" class="form-control" id="first_name"
-        [(ngModel)]="employee.first_name" name="first_name">
+      <input type="text" class="form-control" id="first_name"
+        [(ngModel)]="employee.first_name" required 
+         name="first_name" #first_name="ngModel" [class.is-invalid]="first_name.invalid
+        && first_name.touched">
+        <small class="text-danger" [class.d-none]="first_name.valid || first_name.untouched">First Name is required</small>        
+        
     </div>
+
     <div class="mb-3">
       <label for="last_name" class="form-label">Last Name</label>
       <input type="last_name" class="form-control" id="last_name"
      [(ngModel)]="employee.last_name" name="last_name">
     </div>
+
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone Number</label>
+      <input type="tel"  #phoneNumber="ngModel" pattern="^\d{10}$" required 
+      class="form-control" id="phoneNumber" [(ngModel)]="employee.phoneNumber" name="phoneNumber" 
+         [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched">
+         <!-- <div *ngIf="phoneNumber.errors && (phoneNumber.invalid || phoneNumber.touched)"> -->
+          <div *ngIf="phoneNumber.touched && phoneNumber.invalid">
+          <small class="text-danger" *ngIf="phoneNumber.errors?.['required']">Phone number is required</small>
+          <small class="text-danger" *ngIf="phoneNumber.errors?.['pattern']">Phone number must be 10 digit</small>
+         </div>          
+    </div>    
+
     <div class="mb-3">
         <label for="email" class="form-label">Email Id</label>
         <input type="email" class="form-control" id="email"
-          [(ngModel)]="employee.email" name="email">
+          [(ngModel)]="employee.email" name="email" required
+          #email="ngModel" [class.is-invalid]="email.invalid
+          && email.touched">
+          <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
       </div>
    
     <button type="submit" class="btn btn-primary">Submit</button>

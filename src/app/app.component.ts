@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import {EmployeeListComponent} from './employee-list/employee-list.component'
 import {CreateEmployeeComponent} from './create-employee/create-employee.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
+
 
 
 
@@ -12,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,EmployeeListComponent,RouterModule,CreateEmployeeComponent],
+  imports: [CommonModule, RouterOutlet,EmployeeListComponent,RouterModule,CreateEmployeeComponent,Validators],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
