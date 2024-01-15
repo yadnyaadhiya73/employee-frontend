@@ -13,7 +13,7 @@ import { FormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,EmployeeListComponent,RouterModule,CreateEmployeeComponent,Validators],
+  imports: [CommonModule, RouterOutlet,EmployeeListComponent,RouterModule,CreateEmployeeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
